@@ -34,7 +34,6 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
 | **Parallel agent dispatch** | The orchestrator uses LangGraph's `Send()` to fan out to multiple agents simultaneously. |
 | **RAG product search** | Product catalog is embedded into a vector store; the product agent performs similarity search to find relevant items. |
 | **Order tracking** | Orders are looked up by ID (e.g. `ORD101`) or customer email from the order database. |
-| **Human-in-the-Loop (HITL)** | The support agent calls `interrupt()` when it needs missing info (like an order ID). The graph pauses, the user is prompted, and the graph resumes with their answer. |
 | **Conversation memory** | A `MemorySaver` checkpointer persists state across turns, so multi-turn conversations "just work". |
 | **Human escalation** | Creates a support ticket with priority levels and (optionally) sends an email notification via Resend. |
 | **Voice I/O** | Microphone input + OpenAI TTS output for a fully spoken conversational experience. |
@@ -53,8 +52,8 @@ src/
 ├── nodes.py       # All four graph nodes + agent subgraphs (model ⇄ tools loops)
 ├── tools.py       # Tool implementations: catalog search, order lookup, escalation
 ├── data.py        # Static product catalog, order DB, support policies
-├── rag.py         # Vector store setup for product catalog (not included in repo)
-└── voice.py       # VoiceRecorder & VoiceSpeaker wrappers (not included in repo)
+├── rag.py         # Vector store setup for product catalog
+└── voice.py       # VoiceRecorder & VoiceSpeaker wrappers
 ```
 
 
@@ -120,7 +119,7 @@ Here's what happens when a user sends _"My order is delayed and I want to see so
 
 ```bash
 git clone https://github.com/nsr-19/axiomcart-ai-assistant.git
-cd axiomcart
+cd axiomcart-ai-assistant
 ```
 
 ### 2. Install dependencies
