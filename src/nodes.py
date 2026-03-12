@@ -27,7 +27,6 @@ import operator
 from typing import Annotated, Literal, TypedDict
 
 from langchain_core.messages import AIMessage, AnyMessage, HumanMessage, SystemMessage, ToolMessage
-from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import Command, Send, interrupt
 
@@ -98,8 +97,8 @@ product_tools_by_name = {t.name: t for t in product_tools}
 sales_tools = [get_order_status, escalate_to_human]
 sales_tools_by_name = {t.name: t for t in sales_tools}
 
-product_llm = ChatOpenAI(model="gpt-4o", temperature=0.3).bind_tools(product_tools)
-sales_llm   = ChatOpenAI(model="gpt-4o", temperature=0.3).bind_tools(sales_tools)
+product_llm = llm.bind_tools(product_tools)
+sales_llm   = llm.bind_tools(sales_tools)
 
 
 # ═══════════════════════════════════════════════════════════
