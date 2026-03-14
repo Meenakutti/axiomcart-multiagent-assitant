@@ -20,7 +20,7 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
 ```
 
 <p align="center">
-  <img src="assets/architecture-diagram.svg" alt="AxiomCart Architecture Diagram" width="100%" />
+  <img src="architecture-diagram.svg" alt="AxiomCart Architecture Diagram" width="100%" />
 </p>
 
 1. **Orchestrator** — An LLM-powered classifier that reads the customer's message and decides which specialist(s) should handle it. It can dispatch to one agent or both in parallel.
