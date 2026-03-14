@@ -19,6 +19,10 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
                       └─ support_agent ──↗
 ```
 
+<p align="center">
+  <img src="assets/architecture-diagram.svg" alt="AxiomCart Architecture Diagram" width="100%" />
+</p>
+
 1. **Orchestrator** — An LLM-powered classifier that reads the customer's message and decides which specialist(s) should handle it. It can dispatch to one agent or both in parallel.
 
 2. **Product Agent** — A subgraph with its own model ⇄ tools loop. It has access to a semantic search tool (`search_product_catalog`) backed by a vector store (RAG). It handles product questions, recommendations, and general chitchat.
