@@ -8,8 +8,8 @@ search_product_catalog tool.
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
-from src.config import embeddings, get_logger
-from src.data import PRODUCT_CATALOG
+from config import embeddings, get_logger
+from data import PRODUCT_CATALOG
 
 logger = get_logger("rag")
 

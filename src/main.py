@@ -16,9 +16,9 @@ from langgraph.types import Command
 
 from langchain_core.messages import HumanMessage
 
-from src.config import get_logger
-from src.graph import axiomcart_graph
-from src.voice import VoiceRecorder, VoiceSpeaker
+from config import get_logger
+from graph import axiomcart_graph
+from voice import VoiceRecorder, VoiceSpeaker
 
 logger = get_logger("main")
 
@@ -30,7 +30,7 @@ class AxiomCartAssistant:
     checkpointer carries conversation history across turns.
     """
 
-    def __init__(self, voice: str = "nova", enable_voice: bool = False):
+    def __init__(self, voice: str = "nova", enable_voice: bool = True):
         self.enable_voice = enable_voice
         self.thread_id = uuid.uuid4().hex  # single thread per session
 

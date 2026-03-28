@@ -17,7 +17,7 @@ import numpy as np
 import sounddevice as sd
 import soundfile as sf
 
-from src.config import get_logger, openai_client
+from config import get_logger, openai_client
 
 logger = get_logger("voice")
 

@@ -16,10 +16,10 @@ import time
 
 from langchain_core.tools import tool
 
-from src.data import ESCALATION_QUEUE
-from src.config import get_logger
-from src.data import ORDER_DATABASE
-from src.rag import product_vectorstore
+from data import ESCALATION_QUEUE
+from config import get_logger
+from data import ORDER_DATABASE
+from rag import product_vectorstore
 
 logger = get_logger("tools")
 
